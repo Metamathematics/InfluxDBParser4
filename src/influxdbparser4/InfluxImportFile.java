@@ -5,28 +5,40 @@
  */
 package influxdbparser4;
 
-import java.util.Map;
+import formats.LineProtocolException;
+import java.util.ArrayList;
 
 /**
  *
  * @author sergeygerodes
  */
 public class InfluxImportFile {
-    String database;
-    String retentionPolicy;
-    Map tagset;
-    Map fieldset;
-    long timestamp;
+    private String database;
+    private String retentionPolicy;
+    private ArrayList<Token> tokens;
 
-    public InfluxImportFile(String database, String retentionPolicy, Map tagset, Map fieldset, long timestamp) {
-        this.database = database;
+    public InfluxImportFile(String database, String retentionPolicy, ArrayList<Token> tokens) throws LineProtocolException {
+         if (database == null){
+            throw new LineProtocolException("No database given");
+        }
+        
+         this.database = database;
         this.retentionPolicy = retentionPolicy;
-        this.tagset = tagset;
-        this.fieldset = fieldset;
-        this.timestamp = timestamp;
+        this.tokens = tokens;
     }
 
 
-    
+    public String getDatabase() {
+        return database;
+    }
+
+    public String getRetentionPolicy() {
+        return retentionPolicy;
+    }
+
+    public ArrayList<Token> getTokens() {
+        return tokens;
+    }
+
     
 }
