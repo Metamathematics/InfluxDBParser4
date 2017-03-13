@@ -18,4 +18,8 @@ public class InfluxDBParser4 {
         // TODO code application logic here
     }
     
+    public void run(String[] args){
+        
+    }
+    
 }

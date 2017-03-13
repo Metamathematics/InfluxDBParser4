@@ -5,6 +5,7 @@
  */
 package formats;
 
+import influxdbparser4.InfluxImportFile;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,7 +22,7 @@ public abstract class Format {
     abstract public String readTagset();
     abstract public String readFieldset();
     abstract public long readTimestamp();
-    
+    abstract public InfluxImportFile createInfluxFile();
     
     public static long parseTimestamp(String timestamp, String pattern) throws ParseException {
         /*

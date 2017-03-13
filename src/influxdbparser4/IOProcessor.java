@@ -15,8 +15,9 @@ public class IOProcessor {
     File inputFile;
     File outputFile;
 
-    public IOProcessor(File readedfile) {
+    public IOProcessor(File readedfile, File outputFile) {
         this.inputFile = readedfile;
+        this.outputFile = outputFile;
     }
     
     
